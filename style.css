@@ -1,0 +1,151 @@
+:root {
+    --bg1: #00c6ff;
+    --bg2: #0072ff;
+    --panel: #ffffffee;
+    --btn: #34495e;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: linear-gradient(135deg, var(--bg1), var(--bg2));
+}
+
+.calculator {
+    width: 340px;
+    background: var(--panel);
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    text-align: center;
+    animation: fadeIn 0.8s ease;
+    /* fade in when loaded */
+}
+
+#display {
+    width: 100%;
+    height: 56px;
+    border-radius: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.06);
+    padding: 10px 14px;
+    font-size: 26px;
+    text-align: right;
+    margin-bottom: 14px;
+    background: #f6f8fa;
+    transition: all 0.3s ease;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    height: 58px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background: var(--btn);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.08);
+    background: #2c3e50;
+}
+
+
+/* bounce effect when pressed */
+
+button:active {
+    animation: bounce 0.2s;
+}
+
+.operator {
+    background: #ff7f50;
+}
+
+
+/* orange */
+
+.clear {
+    background: #e74c3c;
+}
+
+
+/* red */
+
+.equal {
+    background: #27ae60;
+}
+
+
+/* green */
+
+.wide {
+    grid-column: span 2;
+}
+
+
+/* animations */
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-flash {
+    animation: flash 0.4s ease;
+}
+
+@keyframes flash {
+    0% {
+        background: #d1f7c4;
+    }
+    100% {
+        background: #f6f8fa;
+    }
+}
+
+@media (max-width: 380px) {
+    .calculator {
+        width: 92vw;
+    }
+    button {
+        font-size: 18px;
+        height: 52px;
+    }
+    #display {
+        font-size: 22px;
+        height: 50px;
+    }
+}
